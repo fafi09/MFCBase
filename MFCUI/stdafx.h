@@ -11,5 +11,6 @@
 #include <afxwin.h>
 #include "resource.h"
 #include <afxext.h>
+#include <afxhtml.h>
 
 // TODO: 在此处引用程序需要的其他头文件

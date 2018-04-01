@@ -17,16 +17,25 @@ class CMyView : public CView
 {
 public:
 	virtual void OnDraw( CDC* pDC );
+	virtual void OnInitialUpdate( );
+	DECLARE_DYNCREATE( CMyView )
 	DECLARE_MESSAGE_MAP( )
 public:
 	afx_msg void OnPaint( );
 	afx_msg void OnWriteHanzi( );
 };
 
+IMPLEMENT_DYNCREATE( CMyView, CView )
+
 BEGIN_MESSAGE_MAP( CMyView, CView )
 	ON_WM_PAINT( )
 	ON_COMMAND( ID_WRITE, OnWriteHanzi )
 END_MESSAGE_MAP( )
+
+void CMyView::OnInitialUpdate( )
+{
+	AfxMessageBox(TEXT("CMyView is created onInitupdate"));
+}
 
 void CMyView::OnWriteHanzi( )
 {
@@ -52,12 +61,36 @@ void CMyView::OnPaint( )
 	::EndPaint(m_hWnd, &ps);
 }
 
+class CMyHtmlView : public CHtmlView
+{
+public:
+	virtual void OnInitialUpdate( );
+
+	DECLARE_DYNCREATE( CMyHtmlView )
+
+	DECLARE_MESSAGE_MAP( )
+};
+
+IMPLEMENT_DYNCREATE( CMyHtmlView, CHtmlView )
+
+BEGIN_MESSAGE_MAP( CMyHtmlView, CHtmlView )
+END_MESSAGE_MAP( )
+
+
+
+void CMyHtmlView::OnInitialUpdate( )
+{
+	//AfxMessageBox(TEXT("CMyHtmlView is created onInitupdate"));
+	//Navigate2(TEXT("c:\\"));
+}
+
 class CMyFrameWnd : public CFrameWnd
 {
 public:
 	virtual LRESULT WindowProc(UINT message, WPARAM wParam, LPARAM lParam);
 	virtual BOOL PreCreateWindow( CREATESTRUCT& cs );
 	virtual BOOL OnCmdMsg(UINT nID, int nCode, void* pExtra, AFX_CMDHANDLERINFO* pHandlerInfo);
+	virtual int OnCreateClient(LPCREATESTRUCT lpcs, CCreateContext* pContext);
 	DECLARE_MESSAGE_MAP( )
 public:
 	afx_msg int OnCreate( LPCREATESTRUCT lpCreateStruct );
@@ -73,6 +106,8 @@ public:
 	CToolBar m_ToolBar;
 	CStatusBar m_StatusBar;
 	CMyView* m_View;
+	CSplitterWnd m_wndSpliter;
+	CSplitterWnd m_wndRightSpliter;
 };
 
 BEGIN_MESSAGE_MAP( CMyFrameWnd, CFrameWnd )
@@ -87,6 +122,27 @@ BEGIN_MESSAGE_MAP( CMyFrameWnd, CFrameWnd )
 	ON_UPDATE_COMMAND_UI( ID_TOOLBARV, OnUpdateToolBarV )
 	//ON_REGISTERED_MESSAGE(g_nRegMsg, OnRegMsg)
 END_MESSAGE_MAP( )
+
+int CMyFrameWnd::OnCreateClient( LPCREATESTRUCT lpcs, CCreateContext* pContext )
+{
+	//静态切分
+	m_wndSpliter.CreateStatic( this, 1, 2 );
+	m_wndRightSpliter.CreateStatic(&m_wndSpliter, 2, 1, WS_CHILD | WS_VISIBLE, m_wndSpliter.IdFromRowCol(0,1));
+	
+	m_wndSpliter.CreateView(0, 0, RUNTIME_CLASS(CMyView), CSize(200, 200), pContext);
+	m_wndRightSpliter.CreateView(0,0, RUNTIME_CLASS(CMyView), CSize(200,200), pContext);
+	m_wndRightSpliter.CreateView(1,0, RUNTIME_CLASS(CMyHtmlView), CSize(200,200), pContext);
+	
+	CMyHtmlView* htmlView = (CMyHtmlView*)m_wndRightSpliter.GetPane(1,0);
+	htmlView->Navigate2(TEXT("D:\\1"));
+
+	//动态切分
+	/*CCreateContext context;
+	context.m_pNewViewClass = RUNTIME_CLASS( CMyView );
+	m_wndSpliter.Create(this, 2, 2, CSize(50,50),&context);*/
+
+	return TRUE;
+}
 
 LRESULT CMyFrameWnd::WindowProc(UINT message, WPARAM wParam, LPARAM lParam)
 {
@@ -181,12 +237,12 @@ int CMyFrameWnd::OnCreate( LPCREATESTRUCT lpCreateStruct )
 	CFrameWnd::OnCreate(lpCreateStruct);
 
 	//创建view
-	m_View = new CMyView();
+	/*m_View = new CMyView();
 
 	m_View->Create(NULL, TEXT("View"), WS_CHILD | WS_VISIBLE | WS_BORDER ,
 		CRect(100,100,200,200),this, AFX_IDW_PANE_FIRST);
 	
-	SetActiveView( m_View );
+	SetActiveView( m_View );*/
 
 	ModifyStyleEx(WS_EX_CLIENTEDGE,0);
 
