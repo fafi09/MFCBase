@@ -86,8 +86,6 @@ BOOL CMyWinApp::InitInstance( )
 	context.m_pNewViewClass = RUNTIME_CLASS( CMyView );
 	context.m_pCurrentDoc = new CMyDoc();
 
-	
-
 	pWnd->LoadFrame( IDC_MFCDOC, WS_OVERLAPPEDWINDOW, NULL, &context);
 
 	this->m_pMainWnd = pWnd;
@@ -96,6 +94,8 @@ BOOL CMyWinApp::InitInstance( )
 
 	pWnd->UpdateWindow( );
 
-	//pWnd->InitialUpdateFrame(NULL, TRUE);
+	//更新当前所有的view,否则view的Oninitialupdate不执行，
+	//原因：在loadframe里如果ccreatecontext为空就发送initialupdate消息，否则不发送
+	pWnd->InitialUpdateFrame(NULL, TRUE);
 	return TRUE;
 }
