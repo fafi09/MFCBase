@@ -11,6 +11,10 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "dyncreate", "dyncreate\dync
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MFCDoc", "MFCDoc\MFCDoc.vcxproj", "{0B956287-AFCD-4673-8793-B8D0C700527D}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "06_MFCSdi", "06_MFCSdi\06_MFCSdi.vcxproj", "{333CD62B-6BEB-488B-9BE0-2F43E44471F7}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "07_MFCMdi", "07_MFCMdi\07_MFCMdi.vcxproj", "{753A6398-2C41-475E-A25D-13890D8474AE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -37,6 +41,14 @@ Global
 		{0B956287-AFCD-4673-8793-B8D0C700527D}.Debug|Win32.Build.0 = Debug|Win32
 		{0B956287-AFCD-4673-8793-B8D0C700527D}.Release|Win32.ActiveCfg = Release|Win32
 		{0B956287-AFCD-4673-8793-B8D0C700527D}.Release|Win32.Build.0 = Release|Win32
+		{333CD62B-6BEB-488B-9BE0-2F43E44471F7}.Debug|Win32.ActiveCfg = Debug|Win32
+		{333CD62B-6BEB-488B-9BE0-2F43E44471F7}.Debug|Win32.Build.0 = Debug|Win32
+		{333CD62B-6BEB-488B-9BE0-2F43E44471F7}.Release|Win32.ActiveCfg = Release|Win32
+		{333CD62B-6BEB-488B-9BE0-2F43E44471F7}.Release|Win32.Build.0 = Release|Win32
+		{753A6398-2C41-475E-A25D-13890D8474AE}.Debug|Win32.ActiveCfg = Debug|Win32
+		{753A6398-2C41-475E-A25D-13890D8474AE}.Debug|Win32.Build.0 = Debug|Win32
+		{753A6398-2C41-475E-A25D-13890D8474AE}.Release|Win32.ActiveCfg = Release|Win32
+		{753A6398-2C41-475E-A25D-13890D8474AE}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
