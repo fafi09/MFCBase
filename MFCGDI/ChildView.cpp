@@ -139,7 +139,7 @@ void CChildView::OnBitmapex()
 	HBITMAP hBitmap 
 		= (HBITMAP)LoadImage(
 			NULL, 
-			TEXT("d:\\Build.bmp"),
+			TEXT("D:\\project\\win32\\win32\\wnd\\all\\all\\bg.bmp"),
 			IMAGE_BITMAP,0,0,LR_DEFAULTCOLOR | LR_DEFAULTSIZE | LR_LOADFROMFILE);
 
 	BITMAP  bitmap = {0};
@@ -212,5 +212,28 @@ void CChildView::OnPalette()
 
 void CChildView::OnRegion()
 {
-	// TODO: 在此添加命令处理程序代码
+	CRgn rgnLeft;
+	CRgn rgnMid;
+	CRgn rgnRight;
+	//创建区域
+	rgnLeft.CreateEllipticRgn(100, 100, 200, 200);
+	rgnRight.CreateEllipticRgn( 400, 100, 500, 200 );
+	rgnMid.CreateRectRgn(150, 130, 450, 170 );
+
+	//区域合并
+	rgnMid.CombineRgn( &rgnMid, &rgnLeft, RGN_OR);
+	rgnMid.CombineRgn( &rgnMid, &rgnRight, RGN_OR);
+	/*rgnMid.CombineRgn( &rgnMid, &rgnLeft, RGN_XOR);
+	rgnMid.CombineRgn( &rgnMid, &rgnRight, RGN_XOR);*/
+
+	//绘制区域
+	CClientDC dc(this);
+
+	CBrush brush1(HS_DIAGCROSS, RGB( 100, 100, 100 ));
+	CBrush brush2( RGB( 100, 100, 100 ));
+
+	//填充区域
+	dc.FillRgn( &rgnMid, &brush1);
+	//在区域外画边框
+	dc.FrameRgn(&rgnMid, &brush2, 2, 2);
 }
