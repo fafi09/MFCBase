@@ -4,9 +4,31 @@
 #include "stdafx.h"
 #include "MFCCollection.h"
 
+//#ifdef _DEBUG
+//#define new DEBUG_NEW
+//#endif
+
+//////////////////////////
+//可以定位到发生内存泄露 所在的文件和具体那一行，用于检测 malloc 分配的内存
+#define _CRTDBG_MAP_ALLOC 
+#include <stdlib.h>
+#include <crtdbg.h>
+
+//把分配内存的信息保存下来，可以定位到那一行发生了内存泄露。用于检测 new 分配的内存
 #ifdef _DEBUG
+//#define new   new(_NORMAL_BLOCK, __FILE__, __LINE__)
 #define new DEBUG_NEW
 #endif
+
+//有用
+inline void EnableMemLeakCheck()
+{
+	//该语句在程序退出时自动调用 _CrtDumpMemoryLeaks(),用于多个退出出口的情况.
+	//如果只有一个退出位置，可以在程序退出之前调用 _CrtDumpMemoryLeaks()
+	_CrtSetDbgFlag(_CrtSetDbgFlag(_CRTDBG_REPORT_FLAG) | _CRTDBG_LEAK_CHECK_DF);
+}
+//////////////////////////
+
 
 CWinApp theApp;
 using namespace std;
@@ -78,7 +100,7 @@ void Array( )
 	arAnimal2[0]->Print( );
 	//删除元素
 	delete arAnimal2[0];
-	//删除全部数据
+	//删除全部数据 不delete可导致内存泄漏
 	arAnimal2.RemoveAll( );
 
 }
@@ -135,8 +157,70 @@ void StringMap( )
 
 }
 
+void ObjectMap( )
+{
+	//定义map
+	CMap<int, int, CAnimal, CAnimal&> mapIntToAnimal;
+
+	mapIntToAnimal.InitHashTable(101);
+
+	printf("map count : %d\n",mapIntToAnimal.GetCount());
+	printf("map size : %d\n",mapIntToAnimal.GetSize());
+
+	//添加元素
+	mapIntToAnimal.SetAt(10, CAnimal(12));
+	mapIntToAnimal[11] = CAnimal(13);
+
+	//查找
+	CAnimal animal10;
+	mapIntToAnimal.Lookup(10, animal10);
+	animal10.Print( );
+	CAnimal animal11 = mapIntToAnimal[11];
+	animal11.Print( );
+
+	//遍历
+	POSITION pos = mapIntToAnimal.GetStartPosition( );
+	int key;
+	CAnimal value;
+	while(pos != NULL)
+	{
+		mapIntToAnimal.GetNextAssoc(pos, key, value);
+		printf("key=%d, leg=%d\n", key, value.m_nLeg);
+	}
+
+	//获取数量
+	printf("map count : %d\n",mapIntToAnimal.GetCount());
+	printf("map size : %d\n",mapIntToAnimal.GetSize());
+
+	//删除元素
+	mapIntToAnimal.RemoveKey(10);
+
+	printf("map count : %d\n",mapIntToAnimal.GetCount());
+	printf("map size : %d\n",mapIntToAnimal.GetSize());
+
+	//删除全部
+	mapIntToAnimal.RemoveAll();
+
+	if(mapIntToAnimal.IsEmpty())
+	{
+		printf("map is empty\n");
+	}
+
+	//new对象注意释放
+	CMap<int, int, CAnimal*, CAnimal*> mapIntToAnimal2;
+	mapIntToAnimal2.SetAt(0, new CAnimal(14));
+	delete mapIntToAnimal2[0];
+	printf("map count : %d\n",mapIntToAnimal2.GetCount());
+	printf("map size : %d\n",mapIntToAnimal2.GetSize());
+	mapIntToAnimal2.RemoveAll( ); //会产生内存泄漏
+	printf("map count : %d\n",mapIntToAnimal2.GetCount());
+	printf("map size : %d\n",mapIntToAnimal2.GetSize());
+}
+
 int _tmain(int argc, TCHAR* argv[], TCHAR* envp[])
 {
+	//检测内存泄漏
+	EnableMemLeakCheck();
 	int nRetCode = 0;
 
 	HMODULE hModule = ::GetModuleHandle(NULL);
@@ -171,6 +255,9 @@ int _tmain(int argc, TCHAR* argv[], TCHAR* envp[])
 
 	printf("===========CMapStringToString\n");
 	StringMap( );
+
+	printf("===========CMap==============\n");
+	ObjectMap( );
 	getch();
 	return nRetCode;
 }
