@@ -27,6 +27,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MFCSerialize", "MFCSerializ
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MFCModelDlg", "MFCModelDlg\MFCModelDlg.vcxproj", "{1CC08E91-F3EA-4751-B6BA-07B9ECDA001B}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MFCModelessDlg", "MFCModelessDlg\MFCModelessDlg.vcxproj", "{17984F19-E9AA-488B-9465-0909252A5AD2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -85,6 +87,10 @@ Global
 		{1CC08E91-F3EA-4751-B6BA-07B9ECDA001B}.Debug|Win32.Build.0 = Debug|Win32
 		{1CC08E91-F3EA-4751-B6BA-07B9ECDA001B}.Release|Win32.ActiveCfg = Release|Win32
 		{1CC08E91-F3EA-4751-B6BA-07B9ECDA001B}.Release|Win32.Build.0 = Release|Win32
+		{17984F19-E9AA-488B-9465-0909252A5AD2}.Debug|Win32.ActiveCfg = Debug|Win32
+		{17984F19-E9AA-488B-9465-0909252A5AD2}.Debug|Win32.Build.0 = Debug|Win32
+		{17984F19-E9AA-488B-9465-0909252A5AD2}.Release|Win32.ActiveCfg = Release|Win32
+		{17984F19-E9AA-488B-9465-0909252A5AD2}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
