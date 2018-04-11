@@ -21,6 +21,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MFCGDI", "MFCGDI\MFCGDI.vcx
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MFCCollection", "MFCCollection\MFCCollection.vcxproj", "{5C9AADAE-B01B-4297-9820-251E7E1DA3E3}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MFCFile", "MFCFile\MFCFile.vcxproj", "{2E4D86C6-5A9F-4CCF-82C8-3FB3ED67D11D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -67,6 +69,10 @@ Global
 		{5C9AADAE-B01B-4297-9820-251E7E1DA3E3}.Debug|Win32.Build.0 = Debug|Win32
 		{5C9AADAE-B01B-4297-9820-251E7E1DA3E3}.Release|Win32.ActiveCfg = Release|Win32
 		{5C9AADAE-B01B-4297-9820-251E7E1DA3E3}.Release|Win32.Build.0 = Release|Win32
+		{2E4D86C6-5A9F-4CCF-82C8-3FB3ED67D11D}.Debug|Win32.ActiveCfg = Debug|Win32
+		{2E4D86C6-5A9F-4CCF-82C8-3FB3ED67D11D}.Debug|Win32.Build.0 = Debug|Win32
+		{2E4D86C6-5A9F-4CCF-82C8-3FB3ED67D11D}.Release|Win32.ActiveCfg = Release|Win32
+		{2E4D86C6-5A9F-4CCF-82C8-3FB3ED67D11D}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
