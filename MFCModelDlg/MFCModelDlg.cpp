@@ -6,14 +6,47 @@ public:
 	CModelDialog();
 
 	virtual BOOL OnInitDialog();
+	virtual	void DoDataExchange(CDataExchange* pDX);
 	DECLARE_MESSAGE_MAP()
+public:
+	//与编辑框绑定
+	CString m_Text;
+	//与按钮绑定
+	CWnd m_Button;
+public:
 	afx_msg void OnPaint();
 	afx_msg void OnIdok();
+	afx_msg void OnButton1();
 };
+
+BEGIN_MESSAGE_MAP(CModelDialog, CDialog)
+	ON_WM_PAINT()
+	ON_COMMAND(IDOK, &CModelDialog::OnIdok)
+	ON_COMMAND(IDC_BUTTON1, &CModelDialog::OnButton1)
+END_MESSAGE_MAP()
+
 
 CModelDialog::CModelDialog():CDialog(IDD_DIALOG1)
 {
+	m_Text = "data exchange";
+}
 
+void CModelDialog::DoDataExchange(CDataExchange* pDX)
+{
+	CDialog::DoDataExchange(pDX);
+
+	DDX_Text(pDX, IDC_EDIT1, m_Text);
+	DDX_Control(pDX, IDC_BUTTON1, m_Button);
+
+}
+
+void CModelDialog::OnButton1()
+{
+	UpdateData(TRUE);
+
+	//m_Button.SetWindowTextW(m_Text);
+	m_Button.GetWindowTextW(m_Text);
+	UpdateData(FALSE);
 }
 
 class CMyWinApp : public CWinApp
@@ -54,11 +87,6 @@ BOOL CModelDialog::OnInitDialog()
 	return TRUE;  // return TRUE unless you set the focus to a control
 	// 异常: OCX 属性页应返回 FALSE
 }
-BEGIN_MESSAGE_MAP(CModelDialog, CDialog)
-	ON_WM_PAINT()
-	ON_COMMAND(IDOK, &CModelDialog::OnIdok)
-END_MESSAGE_MAP()
-
 
 void CModelDialog::OnPaint()
 {
