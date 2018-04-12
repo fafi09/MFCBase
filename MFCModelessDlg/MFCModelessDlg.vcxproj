@@ -75,12 +75,21 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="resource.h" />
     <ClInclude Include="stdafx.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MFCModelessDlg.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="MFCModelessDlg.rc" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties RESOURCE_FILE="MFCModelessDlg.rc" />
+    </VisualStudio>
+  </ProjectExtensions>
 </Project>
