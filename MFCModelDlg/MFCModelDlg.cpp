@@ -42,6 +42,9 @@ void CModelDialog::DoDataExchange(CDataExchange* pDX)
 
 void CModelDialog::OnButton1()
 {
+	//UpdateData函数会调用DoDataExchange
+	//TRUE  - 将数据从控件放置到变量
+	//FALSE - 将数据从变量放置到控件
 	UpdateData(TRUE);
 
 	//m_Button.SetWindowTextW(m_Text);
