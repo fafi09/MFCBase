@@ -51,6 +51,18 @@
     <ClInclude Include="Resource.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="BrushPage.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="PenPage.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Context.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="SettingSheet.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MFCGDI.cpp">
@@ -63,6 +75,18 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="ChildView.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="BrushPage.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="PenPage.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Context.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="SettingSheet.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

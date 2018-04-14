@@ -26,6 +26,9 @@ BEGIN_MESSAGE_MAP(CMainFrame, CFrameWndEx)
 	ON_REGISTERED_MESSAGE(AFX_WM_CREATETOOLBAR, &CMainFrame::OnToolbarCreateNew)
 	ON_COMMAND_RANGE(ID_VIEW_APPLOOK_WIN_2000, ID_VIEW_APPLOOK_WINDOWS_7, &CMainFrame::OnApplicationLook)
 	ON_UPDATE_COMMAND_UI_RANGE(ID_VIEW_APPLOOK_WIN_2000, ID_VIEW_APPLOOK_WINDOWS_7, &CMainFrame::OnUpdateApplicationLook)
+	ON_COMMAND(ID_PAGE, &CMainFrame::OnPage)
+	ON_COMMAND(ID_SHEET, &CMainFrame::OnSheet)
+	ON_COMMAND(ID_WIZARD, &CMainFrame::OnWizard)
 END_MESSAGE_MAP()
 
 static UINT indicators[] =
@@ -329,3 +332,38 @@ BOOL CMainFrame::LoadFrame(UINT nIDResource, DWORD dwDefaultStyle, CWnd* pParent
 	return TRUE;
 }
 
+#include "BrushPage.h"
+#include "PenPage.h"
+
+void CMainFrame::OnPage()
+{
+	CPropertySheet sheet(TEXT("…Ë÷√"));
+	//sheet.m_psh.dwFlags |= PSH_NOAPPLYNOW | PSH_PROPTITLE;
+	sheet.m_psh.dwFlags |=  PSH_PROPTITLE;
+
+	CBrushPage brushPage;
+	CPenPage penPage;
+
+	sheet.AddPage(&brushPage);
+	sheet.AddPage(&penPage);
+
+	if(IDOK != sheet.DoModal())
+	{
+		return;
+	}
+}
+
+
+#include "SettingSheet.h"
+void CMainFrame::OnSheet()
+{
+	CSettingSheet sheet(&m_Context);
+	sheet.Setting();
+}
+
+
+void CMainFrame::OnWizard()
+{
+	CSettingSheet sheet(&m_Context);
+	sheet.SettingWizard();
+}

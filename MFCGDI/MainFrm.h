@@ -50,6 +50,11 @@ protected:
 	afx_msg void OnUpdateApplicationLook(CCmdUI* pCmdUI);
 	DECLARE_MESSAGE_MAP()
 
+public:
+	afx_msg void OnPage();
+	afx_msg void OnSheet();
+	CContext m_Context;
+	afx_msg void OnWizard();
 };
 
 

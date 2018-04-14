@@ -102,17 +102,25 @@
     <None Include="UserImages.bmp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BrushPage.h" />
     <ClInclude Include="ChildView.h" />
+    <ClInclude Include="Context.h" />
     <ClInclude Include="MainFrm.h" />
     <ClInclude Include="MFCGDI.h" />
+    <ClInclude Include="PenPage.h" />
     <ClInclude Include="Resource.h" />
+    <ClInclude Include="SettingSheet.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="BrushPage.cpp" />
     <ClCompile Include="ChildView.cpp" />
+    <ClCompile Include="Context.cpp" />
     <ClCompile Include="MainFrm.cpp" />
     <ClCompile Include="MFCGDI.cpp" />
+    <ClCompile Include="PenPage.cpp" />
+    <ClCompile Include="SettingSheet.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
