@@ -42,4 +42,16 @@ public:
 	afx_msg void OnDblclkHistory();
 	afx_msg void OnSethotkey();
 	CComboBox m_wndLoopNum;
+	CProgressCtrl m_wndProgress;
+	CSliderCtrl m_wndSlider;
+	CSpinButtonCtrl m_wndSpin;
+	afx_msg void OnSetprogress();
+	afx_msg void OnDeltaposSpin(NMHDR *pNMHDR, LRESULT *pResult);
+	afx_msg void OnHScroll(UINT nSBCode, UINT nPos, CScrollBar* pScrollBar);
+	// 初始化进度条
+	void InitProgress(void);
+	// 初始化spin
+	void InitSpin(void);
+	// 初始化滑动条
+	void InitSlider(void);
 };

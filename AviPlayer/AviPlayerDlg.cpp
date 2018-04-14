@@ -64,6 +64,9 @@ void CAviPlayerDlg::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, IDC_LOOP, m_wndLoop);
 	DDX_Text(pDX, IDC_PATH, m_strFilePath);
 	DDX_Control(pDX, IDC_LOOPNUM, m_wndLoopNum);
+	DDX_Control(pDX, IDC_PROGRESS, m_wndProgress);
+	DDX_Control(pDX, IDC_SLIDER, m_wndSlider);
+	DDX_Control(pDX, IDC_SPIN, m_wndSpin);
 }
 
 BEGIN_MESSAGE_MAP(CAviPlayerDlg, CDialogEx)
@@ -76,6 +79,9 @@ BEGIN_MESSAGE_MAP(CAviPlayerDlg, CDialogEx)
 	ON_BN_CLICKED(IDC_LOOP, &CAviPlayerDlg::OnLoop)
 	ON_LBN_DBLCLK(IDC_HISTORY, &CAviPlayerDlg::OnDblclkHistory)
 	ON_BN_CLICKED(IDC_SETHOTKEY_BTN, &CAviPlayerDlg::OnSethotkey)
+	ON_BN_CLICKED(IDC_SETPROGRESS, &CAviPlayerDlg::OnSetprogress)
+	ON_NOTIFY(UDN_DELTAPOS, IDC_SPIN, &CAviPlayerDlg::OnDeltaposSpin)
+	ON_WM_HSCROLL()
 END_MESSAGE_MAP()
 
 
@@ -115,6 +121,13 @@ BOOL CAviPlayerDlg::OnInitDialog()
 	OnLoop();
 	//初始化循环次数
 	m_wndLoopNum.SetCurSel(0);
+
+	//初始化
+	InitProgress( );
+	InitSlider( );
+	InitSpin( );
+
+
 	return TRUE;  // 除非将焦点设置到控件，否则返回 TRUE
 }
 
@@ -256,4 +269,68 @@ void CAviPlayerDlg::OnSethotkey()
 	DWORD nHotKey = m_wndHotKey.GetHotKey();
 	//设置程序热键
 	SendMessage(WM_SETHOTKEY, nHotKey);
+}
+
+
+void CAviPlayerDlg::OnSetprogress()
+{
+	m_wndProgress.StepIt();
+	int npos =m_wndProgress.GetPos();
+	//npos++;
+	m_wndProgress.SetPos(npos);
+	m_wndSlider.SetPos(npos);
+	m_wndSpin.SetPos(npos);
+}
+
+
+void CAviPlayerDlg::OnDeltaposSpin(NMHDR *pNMHDR, LRESULT *pResult)
+{
+	LPNMUPDOWN pNMUpDown = reinterpret_cast<LPNMUPDOWN>(pNMHDR);
+	// TODO: 在此添加控件通知处理程序代码
+	*pResult = 0;
+
+	int nPos = m_wndSpin.GetPos();
+	nPos++;
+
+	//m_wndSpin.SetPos(nPos);
+	m_wndProgress.SetPos(nPos);
+	m_wndSlider.SetPos(nPos);
+	
+}
+
+
+void CAviPlayerDlg::OnHScroll(UINT nSBCode, UINT nPos, CScrollBar* pScrollBar)
+{
+	// TODO: 在此添加消息处理程序代码和/或调用默认值
+	
+	CSliderCtrl* pSlider = (CSliderCtrl*)pScrollBar;
+	int nPos1 = pSlider->GetPos();
+
+	m_wndProgress.SetPos(nPos1);
+	m_wndSpin.SetPos(nPos1);
+
+
+	CDialogEx::OnHScroll(nSBCode, nPos, pScrollBar);
+}
+
+
+// 初始化进度条
+void CAviPlayerDlg::InitProgress(void)
+{
+	m_wndProgress.SetRange(0, 100);
+	m_wndProgress.SetStep(10);
+}
+
+
+// 初始化spin
+void CAviPlayerDlg::InitSpin(void)
+{
+	m_wndSpin.SetRange(0, 100);
+}
+
+
+// 初始化滑动条
+void CAviPlayerDlg::InitSlider(void)
+{
+	m_wndSlider.SetRange(0,100);
 }
