@@ -55,6 +55,8 @@ public:
 	afx_msg void OnSheet();
 	CContext m_Context;
 	afx_msg void OnWizard();
+	afx_msg void OnListDlg();
+	afx_msg void OnMenuTree();
 };
 
 

@@ -31,6 +31,30 @@
     <None Include="res\Toolbar256.bmp">
       <Filter>资源文件</Filter>
     </None>
+    <None Include="res\icon1.ico">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="..\MFCDC\res\Toolbar.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="..\MFCDC\res\Toolbar256.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\icon2.ico">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\normal.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\small.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\bitmap1.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\normal1.bmp">
+      <Filter>资源文件</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MFCGDI.h">
@@ -63,6 +87,12 @@
     <ClInclude Include="SettingSheet.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="ListDlg.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="TreeDlg.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MFCGDI.cpp">
@@ -87,6 +117,12 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="SettingSheet.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ListDlg.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="TreeDlg.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

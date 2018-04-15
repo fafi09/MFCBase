@@ -94,9 +94,17 @@
     </ResourceCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <None Include="..\MFCDC\res\Toolbar.bmp" />
+    <None Include="..\MFCDC\res\Toolbar256.bmp" />
     <None Include="ReadMe.txt" />
+    <None Include="res\bitmap1.bmp" />
+    <None Include="res\icon1.ico" />
+    <None Include="res\icon2.ico" />
     <None Include="res\MFCGDI.ico" />
     <None Include="res\MFCGDI.rc2" />
+    <None Include="res\normal.bmp" />
+    <None Include="res\normal1.bmp" />
+    <None Include="res\small.bmp" />
     <None Include="res\Toolbar.bmp" />
     <None Include="res\Toolbar256.bmp" />
     <None Include="UserImages.bmp" />
@@ -105,6 +113,7 @@
     <ClInclude Include="BrushPage.h" />
     <ClInclude Include="ChildView.h" />
     <ClInclude Include="Context.h" />
+    <ClInclude Include="ListDlg.h" />
     <ClInclude Include="MainFrm.h" />
     <ClInclude Include="MFCGDI.h" />
     <ClInclude Include="PenPage.h" />
@@ -112,11 +121,13 @@
     <ClInclude Include="SettingSheet.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
+    <ClInclude Include="TreeDlg.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="BrushPage.cpp" />
     <ClCompile Include="ChildView.cpp" />
     <ClCompile Include="Context.cpp" />
+    <ClCompile Include="ListDlg.cpp" />
     <ClCompile Include="MainFrm.cpp" />
     <ClCompile Include="MFCGDI.cpp" />
     <ClCompile Include="PenPage.cpp" />
@@ -125,6 +136,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="TreeDlg.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="MFCGDI.rc" />

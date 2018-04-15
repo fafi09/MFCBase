@@ -29,6 +29,8 @@ BEGIN_MESSAGE_MAP(CMainFrame, CFrameWndEx)
 	ON_COMMAND(ID_PAGE, &CMainFrame::OnPage)
 	ON_COMMAND(ID_SHEET, &CMainFrame::OnSheet)
 	ON_COMMAND(ID_WIZARD, &CMainFrame::OnWizard)
+	ON_COMMAND(ID_LIST_DLG, &CMainFrame::OnListDlg)
+	ON_COMMAND(ID_MENU_TREE, &CMainFrame::OnMenuTree)
 END_MESSAGE_MAP()
 
 static UINT indicators[] =
@@ -366,4 +368,24 @@ void CMainFrame::OnWizard()
 {
 	CSettingSheet sheet(&m_Context);
 	sheet.SettingWizard();
+}
+
+
+void CMainFrame::OnListDlg()
+{
+	CListDlg dlg;
+	if(IDOK != dlg.DoModal())
+	{
+		return;
+	}
+}
+
+#include "TreeDlg.h"
+void CMainFrame::OnMenuTree()
+{
+	CTreeDlg dlg;
+	if(IDOK != dlg.DoModal())
+	{
+		return;
+	}
 }
