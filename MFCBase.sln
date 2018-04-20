@@ -35,6 +35,10 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "AviPlayer", "AviPlayer\AviP
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MFCRegDll", "MFCRegDll\MFCRegDll.vcxproj", "{271C6A1E-BCA6-4B94-8ACB-786B5A0D6808}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MFCStyleXp", "MFCStyleXp\MFCStyleXp.vcxproj", "{6BA69929-5484-4E1F-B6E4-3298937F22CB}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MFCdllTest", "MFCdllTest\MFCdllTest.vcxproj", "{5805FC21-DE62-4C88-93F1-82329FE57E86}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -109,6 +113,14 @@ Global
 		{271C6A1E-BCA6-4B94-8ACB-786B5A0D6808}.Debug|Win32.Build.0 = Debug|Win32
 		{271C6A1E-BCA6-4B94-8ACB-786B5A0D6808}.Release|Win32.ActiveCfg = Release|Win32
 		{271C6A1E-BCA6-4B94-8ACB-786B5A0D6808}.Release|Win32.Build.0 = Release|Win32
+		{6BA69929-5484-4E1F-B6E4-3298937F22CB}.Debug|Win32.ActiveCfg = Debug|Win32
+		{6BA69929-5484-4E1F-B6E4-3298937F22CB}.Debug|Win32.Build.0 = Debug|Win32
+		{6BA69929-5484-4E1F-B6E4-3298937F22CB}.Release|Win32.ActiveCfg = Release|Win32
+		{6BA69929-5484-4E1F-B6E4-3298937F22CB}.Release|Win32.Build.0 = Release|Win32
+		{5805FC21-DE62-4C88-93F1-82329FE57E86}.Debug|Win32.ActiveCfg = Debug|Win32
+		{5805FC21-DE62-4C88-93F1-82329FE57E86}.Debug|Win32.Build.0 = Debug|Win32
+		{5805FC21-DE62-4C88-93F1-82329FE57E86}.Release|Win32.ActiveCfg = Release|Win32
+		{5805FC21-DE62-4C88-93F1-82329FE57E86}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
