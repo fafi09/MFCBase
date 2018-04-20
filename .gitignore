@@ -1,4 +1,5 @@
 Thumbs.db
+*.exp
 *.ipch
 *.sdf
 *.obj
