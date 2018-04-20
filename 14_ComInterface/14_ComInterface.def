@@ -1,0 +1,5 @@
+LIBRARY "14_ComInterface"
+
+EXPORTS
+	CreateInstance @1
+	CreateInstanceEx @2

@@ -1,5 +1,4 @@
-import "oaidl.idl";
-import "ocidl.idl";
+import "objidl.idl";
 
 [
 	object,
