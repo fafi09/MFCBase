@@ -64,6 +64,7 @@ BEGIN_MESSAGE_MAP(CMFCdllTestDlg, CDialogEx)
 	ON_WM_SYSCOMMAND()
 	ON_WM_PAINT()
 	ON_WM_QUERYDRAGICON()
+	ON_BN_CLICKED(IDC_TEST_BTN, &CMFCdllTestDlg::OnClickedTestBtn)
 END_MESSAGE_MAP()
 
 
@@ -152,3 +153,16 @@ HCURSOR CMFCdllTestDlg::OnQueryDragIcon()
 	return static_cast<HCURSOR>(m_hIcon);
 }
 
+
+typedef void (*SHOWDLG)();
+
+void CMFCdllTestDlg::OnClickedTestBtn()
+{
+	HMODULE hModule = LoadLibrary(TEXT("MFCRegDll.dll"));
+
+	SHOWDLG ShowDlg = (SHOWDLG)GetProcAddress(hModule, "ShowDlg");
+
+	ShowDlg();
+
+	FreeLibrary(hModule);
+}
