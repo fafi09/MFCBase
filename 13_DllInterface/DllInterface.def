@@ -1,0 +1,3 @@
+LIBRARY "13_DllInterface.dll"
+EXPORTS
+	createInstance @1
