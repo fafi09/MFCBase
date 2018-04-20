@@ -45,6 +45,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "13_DllInterface", "13_DllIn
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "13_UseDllInterface", "13_UseDllInterface\13_UseDllInterface.vcxproj", "{6AFACF5D-9B6E-4887-8890-2924962B7033}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "14_ComInterface", "14_ComInterface\14_ComInterface.vcxproj", "{D2E7EE7F-3973-400E-ACFD-654A3C30EC71}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -139,6 +141,10 @@ Global
 		{6AFACF5D-9B6E-4887-8890-2924962B7033}.Debug|Win32.Build.0 = Debug|Win32
 		{6AFACF5D-9B6E-4887-8890-2924962B7033}.Release|Win32.ActiveCfg = Release|Win32
 		{6AFACF5D-9B6E-4887-8890-2924962B7033}.Release|Win32.Build.0 = Release|Win32
+		{D2E7EE7F-3973-400E-ACFD-654A3C30EC71}.Debug|Win32.ActiveCfg = Debug|Win32
+		{D2E7EE7F-3973-400E-ACFD-654A3C30EC71}.Debug|Win32.Build.0 = Debug|Win32
+		{D2E7EE7F-3973-400E-ACFD-654A3C30EC71}.Release|Win32.ActiveCfg = Release|Win32
+		{D2E7EE7F-3973-400E-ACFD-654A3C30EC71}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
