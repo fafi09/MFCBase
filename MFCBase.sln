@@ -49,6 +49,10 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "14_ComInterface", "14_ComIn
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "14_UseComInterface", "14_UseComInterface\14_UseComInterface.vcxproj", "{C2579343-9FB9-4850-8CAF-B9D17AA7C2EC}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ATLCom", "ATLCom\ATLCom.vcxproj", "{9D11AA35-25FD-455C-B342-81ACCDD7E9F1}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ATLComUse", "ATLComUse\ATLComUse.vcxproj", "{975BC7F8-1ED4-4E14-8628-00EBF64F3B65}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -151,6 +155,14 @@ Global
 		{C2579343-9FB9-4850-8CAF-B9D17AA7C2EC}.Debug|Win32.Build.0 = Debug|Win32
 		{C2579343-9FB9-4850-8CAF-B9D17AA7C2EC}.Release|Win32.ActiveCfg = Release|Win32
 		{C2579343-9FB9-4850-8CAF-B9D17AA7C2EC}.Release|Win32.Build.0 = Release|Win32
+		{9D11AA35-25FD-455C-B342-81ACCDD7E9F1}.Debug|Win32.ActiveCfg = Debug|Win32
+		{9D11AA35-25FD-455C-B342-81ACCDD7E9F1}.Debug|Win32.Build.0 = Debug|Win32
+		{9D11AA35-25FD-455C-B342-81ACCDD7E9F1}.Release|Win32.ActiveCfg = Release|Win32
+		{9D11AA35-25FD-455C-B342-81ACCDD7E9F1}.Release|Win32.Build.0 = Release|Win32
+		{975BC7F8-1ED4-4E14-8628-00EBF64F3B65}.Debug|Win32.ActiveCfg = Debug|Win32
+		{975BC7F8-1ED4-4E14-8628-00EBF64F3B65}.Debug|Win32.Build.0 = Debug|Win32
+		{975BC7F8-1ED4-4E14-8628-00EBF64F3B65}.Release|Win32.ActiveCfg = Release|Win32
+		{975BC7F8-1ED4-4E14-8628-00EBF64F3B65}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

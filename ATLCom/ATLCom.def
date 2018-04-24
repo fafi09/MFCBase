@@ -1,0 +1,5 @@
+LIBRARY "ATLCom"
+
+EXPORTS
+	MyCreateInstance @1
+	MyCreateInstance2 @2
