@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="源文件">
+      <UniqueIdentifier>{6253942c-388c-4117-ae18-e3909c401d28}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="生成的文件">
+      <UniqueIdentifier>{7ac70abe-4975-4693-bc85-c3bfffa5517d}</UniqueIdentifier>
+      <SourceControlFiles>False</SourceControlFiles>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ATLDispps.def" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="ATLDisp_i.c">
+      <Filter>生成的文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ATLDisp_p.c">
+      <Filter>生成的文件</Filter>
+    </ClCompile>
+    <ClCompile Include="dlldata.c">
+      <Filter>生成的文件</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

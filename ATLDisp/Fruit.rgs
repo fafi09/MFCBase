@@ -1,0 +1,25 @@
+HKCR
+{
+	ATLDisp.Fruit.1 = s 'Fruit Class'
+	{
+		CLSID = s '{922557BC-F6BD-4958-9D91-116783987236}'
+	}
+	ATLDisp.Fruit = s 'Fruit Class'
+	{		
+		CurVer = s 'ATLDisp.Fruit.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {922557BC-F6BD-4958-9D91-116783987236} = s 'Fruit Class'
+		{
+			ProgID = s 'ATLDisp.Fruit.1'
+			VersionIndependentProgID = s 'ATLDisp.Fruit'
+			ForceRemove Programmable
+			InprocServer32 = s '%MODULE%'
+			{
+			}
+			TypeLib = s '{02781AE7-CA56-47DE-B75B-7BD7DE02B3F8}'
+			Version = s '1.0'
+		}
+	}
+}

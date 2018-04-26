@@ -1,0 +1,38 @@
+// ATLDisp.idl : ATLDisp 的 IDL 源
+//
+
+// 此文件将由 MIDL 工具处理以
+// 产生类型库(ATLDisp.tlb)和封送处理代码。
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+[
+	object,
+	uuid(CD49CD3A-CCB7-4681-980F-9516F18DB67D),
+	dual,
+	nonextensible,
+	pointer_default(unique)
+]
+interface IFruit : IDispatch{
+	[id(1), helpstring("Method Add")] HRESULT Add(long nAdd1, long nAdd2, long* pnAdd);
+	[propget, id(4)] HRESULT eye([out, retval] LONG* pVal);
+	[propput, id(4)] HRESULT eye([in] LONG newVal);
+	[id(5)] HRESULT ShowMsg(void);
+};
+[
+	uuid(02781AE7-CA56-47DE-B75B-7BD7DE02B3F8),
+	version(1.0),
+]
+library ATLDispLib
+{
+	importlib("stdole2.tlb");
+	[
+		uuid(922557BC-F6BD-4958-9D91-116783987236)		
+	]
+	coclass Fruit
+	{
+		[default] interface IFruit;
+	};
+};
+

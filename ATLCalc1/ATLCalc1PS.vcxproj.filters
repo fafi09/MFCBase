@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="源文件">
+      <UniqueIdentifier>{8476b6e8-1218-4283-9a79-bbd311e7e2b3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="生成的文件">
+      <UniqueIdentifier>{0cbc9ad6-fdd3-4ab3-bfd1-a5ec92d21790}</UniqueIdentifier>
+      <SourceControlFiles>False</SourceControlFiles>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ATLCalc1ps.def" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="ATLCalc1_i.c">
+      <Filter>生成的文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ATLCalc1_p.c">
+      <Filter>生成的文件</Filter>
+    </ClCompile>
+    <ClCompile Include="dlldata.c">
+      <Filter>生成的文件</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,34 @@
+// ATLCalc1.idl : ATLCalc1 的 IDL 源
+//
+
+// 此文件将由 MIDL 工具处理以
+// 产生类型库(ATLCalc1.tlb)和封送处理代码。
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+[
+	object,
+	uuid(088136F6-E5F9-4F57-BAF1-3B3BAE6C1B7B),
+	pointer_default(unique)
+]
+interface ICalc : IUnknown{
+	[] HRESULT Sub([in] LONG nSub1, [in] LONG nSub2, [out] LONG* pnSub);
+	[, helpstring("method add")] HRESULT Add(long nAdd1, long nAdd2, long* pnAdd);
+};
+[
+	uuid(9CF40115-E562-4680-8989-0D83CA75177B),
+	version(1.0),
+]
+library ATLCalc1Lib
+{
+	importlib("stdole2.tlb");
+	[
+		uuid(EF2739AC-79AA-4384-AD92-7EEB0F1326C0)		
+	]
+	coclass Calc
+	{
+		[default] interface ICalc;
+	};
+};
+

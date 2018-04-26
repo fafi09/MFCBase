@@ -1,0 +1,26 @@
+HKCR
+{
+	ATLCalc1.Calc.1 = s 'Calc Class'
+	{
+		CLSID = s '{EF2739AC-79AA-4384-AD92-7EEB0F1326C0}'
+	}
+	ATLCalc1.Calc = s 'Calc Class'
+	{		
+		CurVer = s 'ATLCalc1.Calc.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {EF2739AC-79AA-4384-AD92-7EEB0F1326C0} = s 'Calc Class'
+		{
+			ProgID = s 'ATLCalc1.Calc.1'
+			VersionIndependentProgID = s 'ATLCalc1.Calc'
+			ForceRemove Programmable
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			TypeLib = s '{9CF40115-E562-4680-8989-0D83CA75177B}'
+			Version = s '1.0'
+		}
+	}
+}
