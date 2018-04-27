@@ -67,6 +67,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ATLDispUse", "ATLDispUse\AT
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "EmbWord1", "EmbWord1\EmbWord1.vcxproj", "{3BF5BF70-BB12-48A1-9D29-469593961F0A}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DataType", "DataType\DataType.vcxproj", "{F1CD72B8-2588-47DF-A233-791D180A1107}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -205,6 +207,10 @@ Global
 		{3BF5BF70-BB12-48A1-9D29-469593961F0A}.Debug|Win32.Build.0 = Debug|Win32
 		{3BF5BF70-BB12-48A1-9D29-469593961F0A}.Release|Win32.ActiveCfg = Release|Win32
 		{3BF5BF70-BB12-48A1-9D29-469593961F0A}.Release|Win32.Build.0 = Release|Win32
+		{F1CD72B8-2588-47DF-A233-791D180A1107}.Debug|Win32.ActiveCfg = Debug|Win32
+		{F1CD72B8-2588-47DF-A233-791D180A1107}.Debug|Win32.Build.0 = Debug|Win32
+		{F1CD72B8-2588-47DF-A233-791D180A1107}.Release|Win32.ActiveCfg = Release|Win32
+		{F1CD72B8-2588-47DF-A233-791D180A1107}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
