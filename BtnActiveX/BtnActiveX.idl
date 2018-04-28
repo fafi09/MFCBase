@@ -1,0 +1,58 @@
+// BtnActiveX.idl : ActiveX 控件项目的类型库源。
+
+// 此文件将由 MIDL 编译器工具处理以
+// 产生类型库(BtnActiveX.tlb)，该类型库将成为
+// BtnActiveX.ocx.
+
+#include <olectl.h>
+#include <idispids.h>
+
+[ uuid(CC9D93A9-5C6A-47DD-89FB-A324BCC7BF04), version(1.0),
+  control ]
+library BtnActiveXLib
+{
+	importlib(STDOLE_TLB);
+
+	//  CBtnActiveXCtrl 的主调度接口
+	[ 
+		uuid(84AADE30-6172-4082-9BDE-81DF5A356D05)	
+	]
+	dispinterface _DBtnActiveX
+	{
+		properties:
+			[id(1) ] BSTR Name;
+	methods:
+
+			[id(DISPID_ABOUTBOX)] void AboutBox();
+			[id(2)] void SetButtonName(BSTR pszName);
+	};
+
+	//  CBtnActiveXCtrl 的事件调度接口
+
+	[ 
+		uuid(EDA4C9AC-6883-4D73-82D8-C596B59A8232)	
+	]
+	dispinterface _DBtnActiveXEvents
+	{
+		properties:
+			//  事件接口没有任何属性
+
+		methods:
+			[id(1)] void MyClick(void);
+			[id(DISPID_DOCLICK)] void DoClick(void);
+			[id(DISPID_CLICK)] void Click(void);
+			[id(2)] void MyClick1(void);
+			[id(3)] void MyClick2(void);
+	};
+
+	//  CBtnActiveXCtrl 的类信息
+	[
+		uuid(A0A55F2E-2C98-4D8B-8E29-700A303D71B7)
+	]
+	coclass BtnActiveX
+	{
+		[default] dispinterface _DBtnActiveX;
+		[default, source] dispinterface _DBtnActiveXEvents;
+	};
+
+};
