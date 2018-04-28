@@ -75,6 +75,10 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "AutoExe1", "AutoExe1\AutoEx
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "AutoDll1", "AutoDll1\AutoDll1.vcxproj", "{3731DFEB-5007-4DE7-94CA-321C55775E09}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "BtnActiveX", "BtnActiveX\BtnActiveX.vcxproj", "{7B37A5F4-3D36-41BB-A6C0-04C6E69AD10E}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "BtnActiveXUse", "BtnActiveXUse\BtnActiveXUse.vcxproj", "{ED340BBE-DCA5-4476-B958-BDC0E477957C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -229,6 +233,14 @@ Global
 		{3731DFEB-5007-4DE7-94CA-321C55775E09}.Debug|Win32.Build.0 = Debug|Win32
 		{3731DFEB-5007-4DE7-94CA-321C55775E09}.Release|Win32.ActiveCfg = Release|Win32
 		{3731DFEB-5007-4DE7-94CA-321C55775E09}.Release|Win32.Build.0 = Release|Win32
+		{7B37A5F4-3D36-41BB-A6C0-04C6E69AD10E}.Debug|Win32.ActiveCfg = Debug|Win32
+		{7B37A5F4-3D36-41BB-A6C0-04C6E69AD10E}.Debug|Win32.Build.0 = Debug|Win32
+		{7B37A5F4-3D36-41BB-A6C0-04C6E69AD10E}.Release|Win32.ActiveCfg = Release|Win32
+		{7B37A5F4-3D36-41BB-A6C0-04C6E69AD10E}.Release|Win32.Build.0 = Release|Win32
+		{ED340BBE-DCA5-4476-B958-BDC0E477957C}.Debug|Win32.ActiveCfg = Debug|Win32
+		{ED340BBE-DCA5-4476-B958-BDC0E477957C}.Debug|Win32.Build.0 = Debug|Win32
+		{ED340BBE-DCA5-4476-B958-BDC0E477957C}.Release|Win32.ActiveCfg = Release|Win32
+		{ED340BBE-DCA5-4476-B958-BDC0E477957C}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
