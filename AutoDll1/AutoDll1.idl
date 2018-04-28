@@ -1,0 +1,28 @@
+// AutoDll1.idl : AutoDll1.dll 的类型库源
+// 此文件将由 MIDL 编译器处理以产生
+// 类型库(AutoDll1.tlb)。
+
+#include "olectl.h"
+[ uuid(5858C220-B062-44EA-9A34-98FA2A1EEF03), version(1.0) ]
+library AutoDll1
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+	//  Math 的主调度接口
+		
+	[ uuid(AC39E5B6-F623-4066-81DD-438539CABEE0) ]
+	dispinterface IMath
+	{
+		properties:
+		methods:
+			[id(1)] void Sub(LONG nSub1, LONG nSub2, LONG* pnSub);
+	};
+
+	//  Math 的类信息
+
+	[ uuid(E8DF1F38-70BB-4150-9A32-CB2B15424E95) ]
+	coclass Math
+	{
+		[default] dispinterface IMath;
+	};
+};

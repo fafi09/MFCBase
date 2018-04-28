@@ -1,0 +1,31 @@
+// AutoExe1.idl : AutoExe1.exe 的类型库源
+
+// 此文件将由 MIDL 编译器处理以产生
+// 类型库(AutoExe1.tlb)。
+
+[ uuid(738B968D-993E-44FF-AF91-46E09491B21E), version(1.0) ]
+library AutoExe1
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	//  CAutoExe1Doc 的主调度接口
+	
+	[ uuid(ED925030-AE8A-4FEC-B775-EFFA64A325CF) ]
+	dispinterface IAutoExe1
+	{
+		properties:
+			
+		methods:
+			[id(1)] void SetVisible(SHORT bShow);
+			[id(2)] void TypeText(BSTR pszText);
+	};
+
+	//  CAutoExe1Doc 的类信息
+	
+	[ uuid(68B5C7A5-7407-4C06-A50F-6809CB0026EC) ]
+	coclass CAutoExe1Doc
+	{
+		[default] dispinterface IAutoExe1;
+	};
+};
