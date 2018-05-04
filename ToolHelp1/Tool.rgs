@@ -1,0 +1,14 @@
+HKCR
+{
+	NoRemove CLSID
+	{
+		ForceRemove {7D7C1337-ABBA-4819-8948-0BA28FB92168} = s 'Tool Class'
+		{
+			InprocServer32 = s '%MODULE%'
+			{
+			}
+			TypeLib = s '{11D3C199-A69A-47A6-8DC5-8B990A43905B}'
+			Version = s '1.0'
+		}
+	}
+}

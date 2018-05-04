@@ -1,0 +1,52 @@
+// HollowBtn1.idl : ActiveX 控件项目的类型库源。
+
+// 此文件将由 MIDL 编译器工具处理以
+// 产生类型库(HollowBtn1.tlb)，该类型库将成为
+// HollowBtn1.ocx.
+
+#include <olectl.h>
+#include <idispids.h>
+
+[ uuid(AE444F3D-3863-44B7-B20E-078BA4431F93), version(1.0),
+  control ]
+library HollowBtn1Lib
+{
+	importlib(STDOLE_TLB);
+
+	//  CHollowBtn1Ctrl 的主调度接口
+	[ 
+		uuid(661B853F-8E12-4F9E-A369-1BAF99CC5326)	
+	]
+	dispinterface _DHollowBtn1
+	{
+		properties:
+		methods:
+
+			[id(DISPID_ABOUTBOX)] void AboutBox();
+	};
+
+	//  CHollowBtn1Ctrl 的事件调度接口
+
+	[ 
+		uuid(232480A8-C14C-44DA-99E9-066AA2DF415E)	
+	]
+	dispinterface _DHollowBtn1Events
+	{
+		properties:
+			//  事件接口没有任何属性
+
+		methods:
+			[id(DISPID_CLICK)] void Click(void);
+	};
+
+	//  CHollowBtn1Ctrl 的类信息
+	[
+		uuid(C304FC76-C811-4745-BD11-B89E999690EB)
+	]
+	coclass HollowBtn1
+	{
+		[default] dispinterface _DHollowBtn1;
+		[default, source] dispinterface _DHollowBtn1Events;
+	};
+
+};

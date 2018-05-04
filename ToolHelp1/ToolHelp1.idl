@@ -1,0 +1,45 @@
+// ToolHelp1.idl : ToolHelp1 的 IDL 源
+//
+
+// 此文件将由 MIDL 工具处理以
+// 产生类型库(ToolHelp1.tlb)和封送处理代码。
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+[
+	object,
+	uuid(01200AF2-B27C-4521-ADF8-35BF9C64CA1F),
+	pointer_default(unique)
+]
+interface IProcess : IUnknown{
+	[, helpstring("method ProcessSnapshot")] HRESULT ProcessSnapshot(void);
+	[, helpstring("method ProcessFirst")] HRESULT ProcessFirst(LONG* pnID, BYTE* pszName);
+	[, helpstring("method ProcessNext")] HRESULT ProcessNext(LONG* pnID, BYTE* pszName);
+};
+[
+	object,
+	uuid(3AF65A2D-66CB-4E37-8A22-7EC4676363A0),
+	pointer_default(unique)
+]
+interface IThread : IUnknown{
+	[, helpstring("method ThreadSnapshot")] HRESULT ThreadSnapshot(void);
+	[, helpstring("method ThreadFirst")] HRESULT ThreadFirst(LONG* pnID, LONG* pnProcID);
+	[, helpstring("method ThreadNext")] HRESULT ThreadNext(LONG* pnID, LONG* pnProcID);
+};
+[
+	uuid(11D3C199-A69A-47A6-8DC5-8B990A43905B),
+	version(1.0),
+]
+library ToolHelp1Lib
+{
+	importlib("stdole2.tlb");
+	[
+		uuid(7D7C1337-ABBA-4819-8948-0BA28FB92168)		
+	]
+	coclass Tool
+	{
+		[default] interface IProcess;
+	};
+};
+
