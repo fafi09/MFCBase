@@ -40,6 +40,7 @@ library ToolHelp1Lib
 	coclass Tool
 	{
 		[default] interface IProcess;
+		interface IThread;
 	};
 };
 

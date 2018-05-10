@@ -1,9 +1,20 @@
 HKCR
 {
+	ToolHelp.Tool.1 = s 'Tool Class'
+	{
+		CLSID = s '{7D7C1337-ABBA-4819-8948-0BA28FB92168}'
+	}
+	ToolHelp.Tool = s 'Tool Class'
+	{		
+		CLSID = s '{7D7C1337-ABBA-4819-8948-0BA28FB92168}'
+		CurVer = s 'ToolHelp.Tool.1'
+	}
 	NoRemove CLSID
 	{
 		ForceRemove {7D7C1337-ABBA-4819-8948-0BA28FB92168} = s 'Tool Class'
 		{
+			ProgID = s 'ToolHelp.Tool.1'
+			VersionIndependentProgID = s 'ToolHelp.Tool'
 			InprocServer32 = s '%MODULE%'
 			{
 			}

@@ -63,6 +63,7 @@ STDMETHODIMP CTool::ThreadFirst(LONG* pnID, LONG* pnProcID)
 {
 	// TODO: 在此添加实现代码
 	THREADENTRY32 te = {0};
+	te.dwSize = sizeof(te);
 	if(TRUE != Thread32First(m_hThread, &te))
 	{
 		return E_FAIL;
@@ -78,6 +79,7 @@ STDMETHODIMP CTool::ThreadNext(LONG* pnID, LONG* pnProcID)
 {
 	// TODO: 在此添加实现代码
 	THREADENTRY32 te = {0};
+	te.dwSize = sizeof(te);
 	if(TRUE != Thread32Next(m_hThread, &te))
 	{
 		return E_FAIL;
