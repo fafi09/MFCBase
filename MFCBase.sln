@@ -89,6 +89,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ToolHelp1PS", "ToolHelp1\To
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ToolHelpUse", "ToolHelpUse\ToolHelpUse.vcxproj", "{38F1AB06-0E80-432E-93BB-2F05DA7E3F53}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DBDemo", "DBDemo\DBDemo.vcxproj", "{01C090AD-07BF-4436-96E1-A4EF35754E80}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -271,6 +273,10 @@ Global
 		{38F1AB06-0E80-432E-93BB-2F05DA7E3F53}.Debug|Win32.Build.0 = Debug|Win32
 		{38F1AB06-0E80-432E-93BB-2F05DA7E3F53}.Release|Win32.ActiveCfg = Release|Win32
 		{38F1AB06-0E80-432E-93BB-2F05DA7E3F53}.Release|Win32.Build.0 = Release|Win32
+		{01C090AD-07BF-4436-96E1-A4EF35754E80}.Debug|Win32.ActiveCfg = Debug|Win32
+		{01C090AD-07BF-4436-96E1-A4EF35754E80}.Debug|Win32.Build.0 = Debug|Win32
+		{01C090AD-07BF-4436-96E1-A4EF35754E80}.Release|Win32.ActiveCfg = Release|Win32
+		{01C090AD-07BF-4436-96E1-A4EF35754E80}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
