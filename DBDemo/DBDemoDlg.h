@@ -4,7 +4,7 @@
 
 #pragma once
 
-
+#import "C:\Program Files (x86)\Common Files\System\ado\msado15.dll" no_namespace 				rename("EOF","adoEOF")
 // CDBDemoDlg ¶Ô»°¿ò
 class CDBDemoDlg : public CDialogEx
 {
@@ -34,4 +34,13 @@ public:
 	afx_msg void OnClickedBindOdbc();
 	afx_msg void OnClickedShowAdo();
 	afx_msg void OnClickedShowOdbc();
+	void AdoMethod1(void);
+	void AdoMethod2(void);
+	void AdoMethod3(void);
+	afx_msg void OnClickedAddAdo();
+	afx_msg void OnClickedDelAdo();
+	afx_msg void OnClickedUpdAdo();
+	void PrintProviderError(_ConnectionPtr pConnection);
+	void PrintComError(_com_error &e);
+	afx_msg void OnBnClickedBinaryAdo();
 };
