@@ -43,4 +43,6 @@ public:
 	void PrintProviderError(_ConnectionPtr pConnection);
 	void PrintComError(_com_error &e);
 	afx_msg void OnBnClickedBinaryAdo();
+	afx_msg void OnBnClickedBindAdo();
+	afx_msg void OnBnClickedBindUpdAdo();
 };

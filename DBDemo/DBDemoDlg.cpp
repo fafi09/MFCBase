@@ -71,6 +71,8 @@ BEGIN_MESSAGE_MAP(CDBDemoDlg, CDialogEx)
 	ON_BN_CLICKED(IDC_DEL_ADO, &CDBDemoDlg::OnClickedDelAdo)
 	ON_BN_CLICKED(IDC_UPD_ADO, &CDBDemoDlg::OnClickedUpdAdo)
 	ON_BN_CLICKED(IDC_BINARY_ADO, &CDBDemoDlg::OnBnClickedBinaryAdo)
+	ON_BN_CLICKED(IDC_BIND_ADO, &CDBDemoDlg::OnBnClickedBindAdo)
+	ON_BN_CLICKED(IDC_BIND_UPD_ADO, &CDBDemoDlg::OnBnClickedBindUpdAdo)
 END_MESSAGE_MAP()
 
 
@@ -821,7 +823,7 @@ void CDBDemoDlg::OnBnClickedBinaryAdo()
 		//构造连接字符串
 		CString strConn;
 		//里面的字符串一定要写在一行里，不然会出错
-		strConn.Format(TEXT("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=%s;User ID=;Password=;"),TEXT("D:\\software\\noteCode\\11_数据库ADO\\18\\db\\ado.mdb"));
+		strConn.Format(TEXT("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=%s;User ID=;Password=;"),TEXT("D:\\project\\MFC\\MFC\\DBDemo\\19\\db\\ado.mdb"));
 		//连接数据库
 		nRet=pConnection->Open(_bstr_t(strConn),
 			"","",adConnectUnspecified);
@@ -854,12 +856,12 @@ void CDBDemoDlg::OnBnClickedBinaryAdo()
 		var.vt = VT_ARRAY | VT_UI1;
 		var.parray = pSafeArray;
 		pRecordset->MoveFirst();
-		pRecordset->Fields->GetItem(_variant_t(long(0)))->AppendChunk(&var);
+		pRecordset->Fields->GetItem(_variant_t(long(5)))->AppendChunk(&var);
 		pRecordset->Update();
 
 
-		LONG actualSize = pRecordset->Fields->GetItem(_variant_t(long(0)))->ActualSize;
-		_variant_t value = pRecordset->Fields->GetItem(_variant_t(long(0)))->GetChunk(actualSize);
+		LONG actualSize = pRecordset->Fields->GetItem(_variant_t(long(5)))->ActualSize;
+		_variant_t value = pRecordset->Fields->GetItem(_variant_t(long(5)))->GetChunk(actualSize);
 
 		TCHAR* pszValue=(TCHAR*)malloc(actualSize+1);
 		memset(pszValue,0,actualSize+1);
@@ -890,4 +892,187 @@ void CDBDemoDlg::OnBnClickedBinaryAdo()
 	if(pConnection!=NULL)
 		pConnection->Close();
 
+}
+
+#include "MsgBinding.h"
+
+void CDBDemoDlg::OnBnClickedBindAdo()
+{
+	// TODO: 在此添加控件通知处理程序代码
+	_ConnectionPtr pConnection;
+	_RecordsetPtr pRecordSet;
+
+	try
+	{
+		pConnection.CreateInstance(_uuidof(Connection));
+		//构造连接字符串
+		CString strConn;
+		//里面的字符串一定要写在一行里，不然会出错
+		strConn.Format(TEXT("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=%s;User ID=;Password=;"),TEXT("D:\\software\\noteCode\\11_数据库ADO\\18\\db\\ado.mdb"));
+		//连接数据库
+		pConnection->Open(_bstr_t(strConn), "","", adConnectUnspecified);
+
+		pRecordSet.CreateInstance(_uuidof(Recordset));
+
+
+		//浏览记录
+		pRecordSet->Open(_T("select * from TBL_MSG"), (IDispatch*)pConnection, adOpenKeyset, adLockOptimistic, adCmdText);
+
+		CMsgBinding binding;
+		//从Recordset接口获取IADORecordBinding接口
+		IADORecordBinding* piAdoBinding = NULL;
+
+		if(FAILED(pRecordSet->QueryInterface(_uuidof(IADORecordBinding), (LPVOID*)&piAdoBinding)))
+		{
+			pRecordSet->Close();
+			pConnection->Close();
+			return;
+		}
+		//将子类绑定到IADORecordBinding接口
+		//使用IADORecordBinding->>BindToRecordset绑定数据类
+		if(FAILED(piAdoBinding->BindToRecordset(&binding)))
+		{
+			piAdoBinding->Release();
+			return;
+		}
+		m_wndDatas.InsertColumn(0,TEXT("ID"),LVCFMT_LEFT,100);
+		m_wndDatas.InsertColumn(1,TEXT("SENDER"),LVCFMT_LEFT,100);
+		m_wndDatas.InsertColumn(2,TEXT("RECEIVER"),LVCFMT_LEFT,100);
+
+		int nItem=0;
+		while(!pRecordSet->GetadoEOF())
+		{//CMsgBinding中获取字段的数据
+			nItem=
+				m_wndDatas.InsertItem(nItem,binding.m_szMsgID);
+			m_wndDatas.SetItemText(nItem,1,
+				binding.m_szSender);
+			m_wndDatas.SetItemText(nItem,2,
+				binding.m_szReceiver);
+			nItem++;
+
+			pRecordSet->MoveNext();
+		}
+
+		pRecordSet->Close();
+		pConnection->Close();
+	}
+	catch (...)
+	{
+		CString err;
+		err.Format(TEXT("执行【数据库开启连接】时发生错误：%08x"),GetLastError());
+		AfxMessageBox(err);
+		pConnection->Close();
+	}
+}
+
+
+void CDBDemoDlg::OnBnClickedBindUpdAdo()
+{
+	// TODO: 在此添加控件通知处理程序代码
+	_ConnectionPtr pConnection;
+	_RecordsetPtr pRecordSet;
+
+	try
+	{
+		pConnection.CreateInstance(_uuidof(Connection));
+		//构造连接字符串
+		CString strConn;
+		//里面的字符串一定要写在一行里，不然会出错
+		strConn.Format(TEXT("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=%s;User ID=;Password=;"),TEXT("D:\\software\\noteCode\\11_数据库ADO\\18\\db\\ado.mdb"));
+		//连接数据库
+		pConnection->Open(_bstr_t(strConn), "","", adConnectUnspecified);
+
+		pRecordSet.CreateInstance(_uuidof(Recordset));
+
+
+		//浏览记录
+		pRecordSet->Open(_T("select * from TBL_MSG"), (IDispatch*)pConnection, adOpenKeyset, adLockOptimistic, adCmdText);
+
+		CMsgBindingEx binding;
+		//从Recordset接口获取IADORecordBinding接口
+		IADORecordBinding* piAdoBinding = NULL;
+
+		if(FAILED(pRecordSet->QueryInterface(_uuidof(IADORecordBinding), (LPVOID*)&piAdoBinding)))
+		{
+			pRecordSet->Close();
+			pConnection->Close();
+			return;
+		}
+		//将子类绑定到IADORecordBinding接口
+		//使用IADORecordBinding->>BindToRecordset绑定数据类
+		if(FAILED(piAdoBinding->BindToRecordset(&binding)))
+		{
+			pRecordSet->Close();
+			pConnection->Close();
+			piAdoBinding->Release();
+			return;
+		}
+		
+		binding.m_piBinding = piAdoBinding;
+
+		wcscpy(binding.m_szSender,TEXT("hello binding"));
+
+		binding.Update();
+
+		pRecordSet->MoveFirst();
+
+
+		m_wndDatas.InsertColumn(0,TEXT("ID"),LVCFMT_LEFT,100);
+		m_wndDatas.InsertColumn(1,TEXT("SENDER"),LVCFMT_LEFT,100);
+		m_wndDatas.InsertColumn(2,TEXT("RECEIVER"),LVCFMT_LEFT,100);
+
+		int nItem=0;
+		while(!pRecordSet->GetadoEOF())
+		{//CMsgBinding中获取字段的数据
+			nItem=
+				m_wndDatas.InsertItem(nItem,binding.m_szMsgID);
+
+			int lens = WideCharToMultiByte(CP_ACP, 0, binding.m_szMsgID, wcslen(binding.m_szMsgID), NULL, 0, NULL, NULL);
+			//int lens = wcslen(binding.m_szMsgID);
+
+			char* szText = (char*)malloc(lens+1);
+			memset(szText,0,lens+1);
+			WideCharToMultiByte(CP_ACP,NULL,binding.m_szMsgID,wcslen(binding.m_szMsgID),szText,lens,NULL,NULL);
+
+			m_wndDatas.SetItemText(nItem,1,
+				binding.m_szSender);
+			m_wndDatas.SetItemText(nItem,2,
+				binding.m_szReceiver);
+			nItem++;
+
+			pRecordSet->MoveNext();
+		}
+
+		pRecordSet->Close();
+		pConnection->Close();
+	}
+
+	catch(_com_error &e)
+	{    
+		// Notify the user of errors if any.
+		// Pass a connection pointer accessed from the Recordset.
+		_variant_t vtConnect = pRecordSet->GetActiveConnection();
+
+		// GetActiveConnection returns connect string if connection
+		// is not open, else returns Connection object.
+		switch(vtConnect.vt)
+		{
+		case VT_BSTR:
+			PrintComError(e);
+			break;
+		case VT_DISPATCH:
+			PrintProviderError(vtConnect);
+			break;
+		default:
+			wprintf(TEXT("Errors occured."));
+			break;
+		}
+	}
+	catch (...)
+	{
+		CString err;
+		err.Format(TEXT("执行【数据库开启连接】时发生错误：%08x"),GetLastError());
+		AfxMessageBox(err);
+		pConnection->Close();
+	}
 }
