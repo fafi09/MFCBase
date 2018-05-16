@@ -91,6 +91,10 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ToolHelpUse", "ToolHelpUse\
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DBDemo", "DBDemo\DBDemo.vcxproj", "{01C090AD-07BF-4436-96E1-A4EF35754E80}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MFCThread", "MFCThread\MFCThread.vcxproj", "{C5BD3DE2-4C3B-4969-A0BB-6C8EEB4975FC}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MFCMsgQueue", "MFCMsgQueue\MFCMsgQueue.vcxproj", "{81F26019-26A2-4523-B7C3-C3DF5F464471}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -277,6 +281,14 @@ Global
 		{01C090AD-07BF-4436-96E1-A4EF35754E80}.Debug|Win32.Build.0 = Debug|Win32
 		{01C090AD-07BF-4436-96E1-A4EF35754E80}.Release|Win32.ActiveCfg = Release|Win32
 		{01C090AD-07BF-4436-96E1-A4EF35754E80}.Release|Win32.Build.0 = Release|Win32
+		{C5BD3DE2-4C3B-4969-A0BB-6C8EEB4975FC}.Debug|Win32.ActiveCfg = Debug|Win32
+		{C5BD3DE2-4C3B-4969-A0BB-6C8EEB4975FC}.Debug|Win32.Build.0 = Debug|Win32
+		{C5BD3DE2-4C3B-4969-A0BB-6C8EEB4975FC}.Release|Win32.ActiveCfg = Release|Win32
+		{C5BD3DE2-4C3B-4969-A0BB-6C8EEB4975FC}.Release|Win32.Build.0 = Release|Win32
+		{81F26019-26A2-4523-B7C3-C3DF5F464471}.Debug|Win32.ActiveCfg = Debug|Win32
+		{81F26019-26A2-4523-B7C3-C3DF5F464471}.Debug|Win32.Build.0 = Debug|Win32
+		{81F26019-26A2-4523-B7C3-C3DF5F464471}.Release|Win32.ActiveCfg = Release|Win32
+		{81F26019-26A2-4523-B7C3-C3DF5F464471}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
