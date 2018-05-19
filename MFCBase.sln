@@ -95,6 +95,14 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MFCThread", "MFCThread\MFCT
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MFCMsgQueue", "MFCMsgQueue\MFCMsgQueue.vcxproj", "{81F26019-26A2-4523-B7C3-C3DF5F464471}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MFCClient", "MFCClient\MFCClient.vcxproj", "{6C548265-1C64-4FBE-9A24-4CC6BCF4F424}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MFCServer", "MFCServer\MFCServer.vcxproj", "{62A89D90-513C-499E-8273-8724C9CBF838}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "socketclient", "socketclient\socketclient.vcxproj", "{773E3E7E-5EEE-49D2-A723-ED58AEA479FA}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "socketServer", "socketServer\socketServer.vcxproj", "{1573853E-402A-4376-8990-23460FD7E807}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -289,6 +297,22 @@ Global
 		{81F26019-26A2-4523-B7C3-C3DF5F464471}.Debug|Win32.Build.0 = Debug|Win32
 		{81F26019-26A2-4523-B7C3-C3DF5F464471}.Release|Win32.ActiveCfg = Release|Win32
 		{81F26019-26A2-4523-B7C3-C3DF5F464471}.Release|Win32.Build.0 = Release|Win32
+		{6C548265-1C64-4FBE-9A24-4CC6BCF4F424}.Debug|Win32.ActiveCfg = Debug|Win32
+		{6C548265-1C64-4FBE-9A24-4CC6BCF4F424}.Debug|Win32.Build.0 = Debug|Win32
+		{6C548265-1C64-4FBE-9A24-4CC6BCF4F424}.Release|Win32.ActiveCfg = Release|Win32
+		{6C548265-1C64-4FBE-9A24-4CC6BCF4F424}.Release|Win32.Build.0 = Release|Win32
+		{62A89D90-513C-499E-8273-8724C9CBF838}.Debug|Win32.ActiveCfg = Debug|Win32
+		{62A89D90-513C-499E-8273-8724C9CBF838}.Debug|Win32.Build.0 = Debug|Win32
+		{62A89D90-513C-499E-8273-8724C9CBF838}.Release|Win32.ActiveCfg = Release|Win32
+		{62A89D90-513C-499E-8273-8724C9CBF838}.Release|Win32.Build.0 = Release|Win32
+		{773E3E7E-5EEE-49D2-A723-ED58AEA479FA}.Debug|Win32.ActiveCfg = Debug|Win32
+		{773E3E7E-5EEE-49D2-A723-ED58AEA479FA}.Debug|Win32.Build.0 = Debug|Win32
+		{773E3E7E-5EEE-49D2-A723-ED58AEA479FA}.Release|Win32.ActiveCfg = Release|Win32
+		{773E3E7E-5EEE-49D2-A723-ED58AEA479FA}.Release|Win32.Build.0 = Release|Win32
+		{1573853E-402A-4376-8990-23460FD7E807}.Debug|Win32.ActiveCfg = Debug|Win32
+		{1573853E-402A-4376-8990-23460FD7E807}.Debug|Win32.Build.0 = Debug|Win32
+		{1573853E-402A-4376-8990-23460FD7E807}.Release|Win32.ActiveCfg = Release|Win32
+		{1573853E-402A-4376-8990-23460FD7E807}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
